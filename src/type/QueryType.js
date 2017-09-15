@@ -10,6 +10,7 @@ import {
 } from 'graphql-relay';
 
 import PokemonType from './PokemonType';
+import CommentType from './CommentType';
 
 import {
   getPokemons,
@@ -17,6 +18,9 @@ import {
   getPokemonByName,
 } from '../service/Pokemon';
 
+import {
+  getComments,
+} from '../service/Comment'
 
 const QueryType = new GraphQLObjectType({
   name: 'Query',
@@ -25,6 +29,15 @@ const QueryType = new GraphQLObjectType({
     query: {
       type: QueryType,
       resolve: (...args) => args,
+    },
+    comments: {
+      type: new GraphQLList(CommentType),
+      args: {
+        first: {
+          type: new GraphQLNonNull(GraphQLInt),
+        },
+      },
+      resolve: async (obj, args) => await getComments(args),
     },
     pokemons: {
       type: new GraphQLList(PokemonType),
