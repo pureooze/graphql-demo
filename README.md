@@ -1,3 +1,6 @@
+
+This project is a fork of the <a href="https://github.com/lucasbento/graphql-pokemon">graphql-pokemon project</a>.
+
 <p align="center">
   <img src="https://github.com/lucasbento/graphql-pokemon/raw/master/content/logo.png">
 </p>
